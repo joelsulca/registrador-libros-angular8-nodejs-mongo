@@ -1,0 +1,44 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/books']"><mat-icon>list</mat-icon></a>
+</div>
+<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit(bookForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="ISBN" formControlName="isbn">
+    <mat-error>
+      <span *ngIf="!bookForm.get('isbn').valid && bookForm.get('isbn').touched">{{messageErros.isbn}}</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Título" formControlName="title">
+    <mat-error>
+      <span *ngIf="!bookForm.get('title').valid && bookForm.get('title').touched">{{messageErros.title}}</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Autor" formControlName="author">
+    <mat-error>
+      <span *ngIf="!bookForm.get('author').valid && bookForm.get('author').touched">{{messageErros.author}}</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Descripción" formControlName="description"></textarea>
+    <mat-error>
+      <span *ngIf="!bookForm.get('description').valid && bookForm.get('description').touched">{{messageErros.description}}</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Publicador" formControlName="publisher">
+    <mat-error>
+      <span *ngIf="!bookForm.get('publisher').valid && bookForm.get('publisher').touched">{{messageErros.publisher}}</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Año de publicación" formControlName="published_year">
+    <mat-error>
+      <span *ngIf="!bookForm.get('published_year').valid && bookForm.get('published_year').touched">{{messageErros.published_year}}</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="button-row">
+    <button type="submit" [disabled]="!bookForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon>Guardar</button>
+  </div>
+</form>
