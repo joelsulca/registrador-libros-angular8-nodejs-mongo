@@ -37,5 +37,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.send(err.status);
 });
+app.listen(process.env.PORT || 8080);
 
 module.exports = app;
